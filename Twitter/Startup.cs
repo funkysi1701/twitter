@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -67,6 +66,7 @@ namespace Twitter
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Twitter", Version = "v1" });
             });
+            services.Configure<ConfigOptions>(options => Configuration.Bind(options));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
