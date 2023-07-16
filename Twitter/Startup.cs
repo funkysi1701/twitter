@@ -26,7 +26,7 @@ namespace Twitter
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplicationInsightsTelemetry(Configuration.GetSection("ApplicationInsights").GetValue<string>("InstrumentationKey"));
+            services.AddApplicationInsightsTelemetry();
             var key = Encoding.ASCII.GetBytes(Configuration.GetValue<string>("Secret"));
             services.AddControllers();
             services.AddDefaultIdentity<IdentityUser>(options =>
